@@ -1,1 +1,1 @@
-# studdy-buddy
+# study-buddy
