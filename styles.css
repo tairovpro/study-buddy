@@ -216,7 +216,7 @@
   padding: 0 50px;
 }
 .main {
-  background-color: #140101;
+  background-color: rgb(56,72,69);
 }
 
 .main__container {
@@ -454,13 +454,14 @@ input:focus~label,input:not(:placeholder-shown)~label{
   outline: none;
   border: none;
   width: 100%;
-  background: rgb(125,125,235);
+  background: #56A3A6;
   color: white;
   cursor: pointer;
   transition: 0.9s;
 }
 .btn:hover{
   background:#07001f;
+  transition: background 0.3s ease;
 }
 .or{
   font-size: 1.1rem;
@@ -468,18 +469,22 @@ input:focus~label,input:not(:placeholder-shown)~label{
   text-align: center;
 }
 .icons{
-  text-align: center;
-  margin: 0 2rem;
+  display: table;
+  margin: 1rem auto;
+  width: 100%;
+  max-width: 300px;
 }
 .icons i{
-  color: rgb(125,125,235);
+  color: #56A3A6;
   padding: 0.8rem 1.5rem;
   border-radius: 10px;
   font-size: 1.5rem;
   cursor: pointer;
   border: 2px solid #dfe9f5;
-  margin:0 15px;
   transition: 1s;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
 }
 .icons i:hover{
   background:#07001f;
