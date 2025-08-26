@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Study-Buddy • Onboarding Quiz</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://kit.fontawesome.com/99a22c850c.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    .quiz-wrapper { max-width: 900px; margin: 40px auto; }
+    .progress { height: 10px; background: #eee; border-radius: 999px; overflow: hidden; margin: 12px 0 24px; }
+    .progress > div { height: 100%; width: 0%; background: #56A3A6; transition: width .3s ease; }
+    .step { display: none; }
+    .step.active { display: block; }
+    .choices { display: grid; gap: 10px; margin: 12px 0 8px; }
+    .choices label { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid #dfe9f5; border-radius:10px; background:#fff; cursor:pointer; }
+    .step-nav { display:flex; justify-content:space-between; gap:12px; margin-top: 16px; }
+    .step-nav .btn { width: auto; padding: 10px 16px; }
+    .results { display:none; background:#fff; padding:1.5rem; border-radius:10px; box-shadow:0 20px 35px rgba(0,0,1,.09); }
+    .pill { display:inline-block; padding:4px 10px; border-radius:999px; background:#D4EAC8; color:#384845; font-size:.85rem; margin-right:6px; margin-bottom:6px; }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="navbar__container">
+      <a href="./index.html" id="navbar__logo"><i class="fa-solid fa-brain"></i>Study-Buddy</a>
+      <div class="navbar__toggle" id="mobile-menu">
+        <span class="bar"></span> <span class="bar"></span> <span class="bar"></span>
+      </div>
+      <ul class="navbar__menu">
+        <li class="navbar__item"><a href="./index.html" class="navbar__links">Home</a></li>
+        <li class="navbar__item"><a href="./about.html" class="navbar__links">About</a></li>
+        <li class="navbar__item"><a href="./quiz.html" class="navbar__links">Quiz</a></li>
+        <li class="navbar__btn"><a href="./login.html" class="button">Sign Up</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="quiz-wrapper">
+    <div class="container">
+      <h1 class="form-title">Onboarding Quiz</h1>
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <section class="step active">
+        <h2>What is your main goal?</h2>
+        <div class="choices">
+          <label><input type="radio" name="goal" value="Exam prep"> Exam prep</label>
+          <label><input type="radio" name="goal" value="Skill improvement"> Skill improvement</label>
+          <label><input type="radio" name="goal" value="Career switch"> Career switch</label>
+          <label><input type="radio" name="goal" value="General learning"> General learning</label>
+        </div>
+        <div class="step-nav"><button class="btn" id="next1">Next</button></div>
+      </section>
+
+      <section class="step">
+        <h2>Which subjects will you focus on?</h2>
+        <div class="choices">
+          <label><input type="checkbox" name="subjects" value="Math"> Math</label>
+          <label><input type="checkbox" name="subjects" value="Science"> Science</label>
+          <label><input type="checkbox" name="subjects" value="Programming"> Programming</label>
+          <label><input type="checkbox" name="subjects" value="Writing"> Writing</label>
+        </div>
+        <div class="step-nav">
+          <button class="btn" data-back>Back</button>
+          <button class="btn" id="next2">Next</button>
+        </div>
+      </section>
+
+      <section class="step">
+        <h2>How much time can you study?</h2>
+        <div class="choices">
+          <label><input type="radio" name="time" value="30 min/day"> 30 min/day</label>
+          <label><input type="radio" name="time" value="1 hour/day"> 1 hour/day</label>
+          <label><input type="radio" name="time" value="2 hours/day"> 2 hours/day</label>
+        </div>
+        <h2 style="margin-top:12px;">When do you prefer to study?</h2>
+        <div class="choices">
+          <label><input type="radio" name="schedule" value="Morning"> Morning</label>
+          <label><input type="radio" name="schedule" value="Afternoon"> Afternoon</label>
+          <label><input type="radio" name="schedule" value="Evening"> Evening</label>
+        </div>
+        <div class="step-nav">
+          <button class="btn" data-back>Back</button>
+          <button class="btn" id="next3">Next</button>
+        </div>
+      </section>
+
+      <section class="step">
+        <h2>What is your preferred learning style?</h2>
+        <div class="choices">
+          <label><input type="radio" name="style" value="Videos"> Videos</label>
+          <label><input type="radio" name="style" value="Reading"> Reading</label>
+          <label><input type="radio" name="style" value="Practice"> Practice problems</label>
+          <label><input type="radio" name="style" value="Projects"> Projects</label>
+        </div>
+        <h2 style="margin-top:12px;">Your current level?</h2>
+        <div class="choices">
+          <label><input type="radio" name="level" value="Beginner"> Beginner</label>
+          <label><input type="radio" name="level" value="Intermediate"> Intermediate</label>
+          <label><input type="radio" name="level" value="Advanced"> Advanced</label>
+        </div>
+        <div class="step-nav">
+          <button class="btn" data-back>Back</button>
+          <button class="btn" id="finish">See Plan</button>
+        </div>
+      </section>
+
+      <section class="results" id="results">
+        <h2>Your Personalized Study Plan</h2>
+        <p id="planSummary"></p>
+        <div id="pillbox"></div>
+        <div id="weeklyPlan"></div>
+        <div class="step-nav" style="margin-top:16px;">
+          <a class="btn" href="./quiz.html">Retake Quiz</a>
+          <a class="btn" href="./index.html">Back to Home</a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+  <script src="quiz.js"></script>
+</body>
+</html>
